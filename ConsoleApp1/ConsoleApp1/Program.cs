@@ -1,37 +1,48 @@
-﻿namespace ConsoleApp1
+﻿using System;
+using System.Collections.Generic;
+
+class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        
+        List<int> numbers = new List<int>();
+        int input;
+
+        Console.WriteLine("Enter numbers (enter 0 to complete):");
+
+        do
         {
-            int count = 1;
-            int countMax = 0;
-            int a = 1;
-            do
+            input = Convert.ToInt32(Console.ReadLine());
+            numbers.Add(input);
+        } while (input != 0);
+
+        int count = 0;
+        int previousNumber = numbers[0];
+
+        Console.WriteLine("Repeating successive numbers:");
+
+        for (int i = 1; i < numbers.Count; i++)
+        {
+            if (numbers[i] == previousNumber)
             {
-                Console.WriteLine("Enter number:");
-                int number = int.Parse(Console.ReadLine());
-                if (number == 0) break;
-                else if (a == number)
-                {
-                    count++;
-                }
-                else
-                {
-                    if (countMax < count)
-                    {
-                        countMax = count;
-                    }
-                    a = number;
-                    count = 1;
-                }
+                count++;
             }
-            while (true);
-            if (countMax < count)
+            else
             {
-                countMax = count;
+                if (count > 0)
+                {
+                    Console.WriteLine($"number {previousNumber}  {count+1} times");
+                    count = 0;
+                }
+                previousNumber = numbers[i];
             }
-            Console.WriteLine($"result {countMax} ");
         }
     }
 }
+ 
+
+
+
+
+
