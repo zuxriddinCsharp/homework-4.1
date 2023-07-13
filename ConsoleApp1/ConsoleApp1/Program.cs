@@ -8,7 +8,7 @@ class Program
         
         List<int> numbers = new List<int>();
         int input;
-
+      
         Console.WriteLine("Enter numbers (enter 0 to complete):");
 
         do
@@ -28,7 +28,7 @@ class Program
             {
                 count++;
             }
-            else
+            else if
             {
                 if (count > 0)
                 {
