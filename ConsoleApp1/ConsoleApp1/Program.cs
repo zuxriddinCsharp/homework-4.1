@@ -28,7 +28,7 @@ class Program
             {
                 count++;
             }
-            else if
+            else 
             {
                 if (count > 0)
                 {
